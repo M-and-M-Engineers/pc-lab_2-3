@@ -2,9 +2,10 @@ package pc.rl
 
 import org.scalatest.FlatSpec
 import org.scalatest.Matchers._
-import TwoWaysMDP._
-import TwoWaysMDP.State
-import TwoWaysMDP.Action._
+import pc.rl.examples.TwoWaysMDP
+import pc.rl.examples.TwoWaysMDP._
+import pc.rl.examples.TwoWaysMDP.State
+import pc.rl.examples.TwoWaysMDP.Action._
 
 class QFunctionSpec extends FlatSpec{
 

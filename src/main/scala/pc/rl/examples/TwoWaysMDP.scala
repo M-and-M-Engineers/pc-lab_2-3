@@ -1,11 +1,15 @@
-package pc.rl
+package pc.rl.examples
+import pc.rl.model.QRLImpl
 
 object TwoWaysMDP {
-  case class State(n:Int)
+  case class State(n: Int)
+
   object Action extends Enumeration {
-    val left,right = Value
+    val left, right = Value
   }
+
   import Action._
+
   type Action = Action.Value
 
   val target = -5
@@ -13,9 +17,11 @@ object TwoWaysMDP {
   val penalty = -0.2
   val maxRight = 10
 
-  val terminalTW: State => Boolean = {case State(n) => (n<=target | n>=maxRight)}
+  val terminalTW: State => Boolean = {
+    case State(n) => (n <= target | n >= maxRight)
+  }
 
-  object rl extends QRLImpl[State,Action] {
+  object rl extends QRLImpl[State, Action] {
 
     def qfTW(): Q = QFunction(Action.values, 1.0, terminalTW)
 
