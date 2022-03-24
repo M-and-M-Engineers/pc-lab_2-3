@@ -12,6 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e4b3763-5529-494c-a5d3-4f436b2838ca" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/formalsystems-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/formalsystems-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/formalsystems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/formalsystems.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,12 +30,20 @@
     </projectState>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="02-lesson" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="20Z2SuZtCmP1jaixQf6eFzVyqSN" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -45,89 +55,30 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.31724137" />
   </component>
-  <component name="RunManager" selected="Application.StochasticChannelSimulation">
-    <configuration name="DAPGossip" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="pc.examples.DAPGossip" />
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="pc.examples" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="RWSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" singleton="false" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="formalsystems" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pc.examples.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StochasticChannelSimulation" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="pc.examples.StochasticChannelSimulation" />
-      <module name="formalsystems" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pc.examples.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SystemChannel" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="pc.examples.SystemChannel" />
-      <module name="formalsystems" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pc.examples.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ScalaTests in 'scala'" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <module name="formalsystems" />
-      <option name="allowRunningInParallel" value="false" />
-      <option name="projectPathOnTarget" />
-      <option name="selectedOptions">
-        <list />
-      </option>
-      <option name="testKind" value="All in package" />
-      <option name="classBuf">
-        <list>
-          <option value="pc.utils.MSetSpec" />
-          <option value="pc.utils.StochasticsSpec" />
-          <option value="pc.modelling.PNSpec" />
-          <option value="pc.modelling.SystemChannelSpec" />
-          <option value="pc.modelling.StochasticChannelSpec" />
-        </list>
-      </option>
-      <option name="workingDirectory" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SystemChannelSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
-      <module name="formalsystems" />
-      <option name="allowRunningInParallel" value="false" />
+      <option name="allowRunningInParallel" value="true" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
       </option>
       <option name="testKind" value="Class" />
-      <option name="testClassPath" value="pc.modelling.SystemChannelSpec" />
-      <option name="workingDirectory" value="$PROJECT_DIR$" />
+      <option name="shortenClasspath" value="NONE" />
+      <option name="testClassPath" value="pc.modelling.RWSpec" />
+      <option name="workingDirectory" value="C:\Users\Maxim\Documents\Pervasive\Modulo2\pc-lab_2-3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StochasticChannelSimulation" />
-        <item itemvalue="ScalaTest.ScalaTests in 'scala'" />
-        <item itemvalue="ScalaTest.SystemChannelSpec" />
-        <item itemvalue="Application.SystemChannel" />
-        <item itemvalue="Application.DAPGossip" />
+        <item itemvalue="ScalaTest.RWSpec" />
       </list>
     </recent_temporary>
   </component>
