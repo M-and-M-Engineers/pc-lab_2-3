@@ -12,8 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e4b3763-5529-494c-a5d3-4f436b2838ca" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/formalsystems-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/formalsystems-build.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/formalsystems.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/formalsystems.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +58,33 @@
       <recent name="pc.examples" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.StochasticChannelSimulator">
+    <configuration name="StochasticChannelSimulation" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="pc.examples.StochasticChannelSimulation" />
+      <module name="formalsystems" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pc.examples.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StochasticChannelSimulator" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="pc.examples.StochasticChannelSimulator" />
+      <module name="formalsystems" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pc.examples.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RWSpec" type="ScalaTestRunConfiguration" factoryName="ScalaTest" singleton="false" temporary="true" nameIsGenerated="true" show_console_on_std_err="false" show_console_on_std_out="false">
       <module name="formalsystems" />
       <option name="allowRunningInParallel" value="true" />
@@ -76,8 +100,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.StochasticChannelSimulation" />
+      <item itemvalue="Application.StochasticChannelSimulator" />
+      <item itemvalue="ScalaTest.RWSpec" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StochasticChannelSimulator" />
+        <item itemvalue="Application.StochasticChannelSimulation" />
         <item itemvalue="ScalaTest.RWSpec" />
       </list>
     </recent_temporary>
