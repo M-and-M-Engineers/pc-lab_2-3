@@ -58,22 +58,9 @@
       <recent name="pc.examples" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StochasticChannelSimulator">
-    <configuration name="StochasticChannelSimulation" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="pc.examples.StochasticChannelSimulation" />
-      <module name="formalsystems" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pc.examples.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StochasticChannelSimulator" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="pc.examples.StochasticChannelSimulator" />
+  <component name="RunManager" selected="Application.PriorityRWSimulator">
+    <configuration name="PriorityRWSimulator" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="pc.examples.PriorityRWSimulator" />
       <module name="formalsystems" />
       <extension name="coverage">
         <pattern>
@@ -101,14 +88,12 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.StochasticChannelSimulation" />
-      <item itemvalue="Application.StochasticChannelSimulator" />
       <item itemvalue="ScalaTest.RWSpec" />
+      <item itemvalue="Application.PriorityRWSimulator" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StochasticChannelSimulator" />
-        <item itemvalue="Application.StochasticChannelSimulation" />
+        <item itemvalue="Application.PriorityRWSimulator" />
         <item itemvalue="ScalaTest.RWSpec" />
       </list>
     </recent_temporary>
