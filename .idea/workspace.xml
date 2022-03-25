@@ -58,9 +58,22 @@
       <recent name="pc.examples" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PriorityRWSimulator">
+  <component name="RunManager" selected="Application.StochasticRW">
     <configuration name="PriorityRWSimulator" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="pc.examples.PriorityRWSimulator" />
+      <module name="formalsystems" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pc.examples.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StochasticRW" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="pc.examples.StochasticRW" />
       <module name="formalsystems" />
       <extension name="coverage">
         <pattern>
@@ -90,9 +103,11 @@
     <list>
       <item itemvalue="ScalaTest.RWSpec" />
       <item itemvalue="Application.PriorityRWSimulator" />
+      <item itemvalue="Application.StochasticRW" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StochasticRW" />
         <item itemvalue="Application.PriorityRWSimulator" />
         <item itemvalue="ScalaTest.RWSpec" />
       </list>
