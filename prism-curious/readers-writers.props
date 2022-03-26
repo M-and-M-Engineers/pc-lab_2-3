@@ -1,0 +1,18 @@
+// Probability that readers and writes operate together must be 0.
+P=? [ true U <= k ((p6 > 0) & (p7 > 0)) ]
+
+// Probability that if someone wants to read, he will eventually read.
+P=? [ true U <= k (p6 > 0) ]
+
+// Probability that if someone wants to write, he will eventually write.
+P=? [ true U <= k (p7 > 0) ]
+
+// Probability that there is more than 1 active writer must be 0.
+P=? [ true U <= k (p7 > 1) ] 
+
+// Time spent in writing is influenced by the fact that writers perform one at a time.
+S=? [ p7 > 0 ]
+
+// Time spent in reading is less than in writing because readers don't require mutual exclusion to read.
+S=? [ p6 > 0 ]
+
