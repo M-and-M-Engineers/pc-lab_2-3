@@ -13,10 +13,12 @@ object StochasticChannelExperiment extends App {
   val data = for (t <- (0.1 to 10.0 by 0.1).toParArray; //parallel execution
                   p = channelAnalysis.experiment(
                         runs = 19000,
-                        prop = channelAnalysis.eventually(_ == DONE),
+                        prop = channelAnalysis.until(_ => true, _ == DONE),
                         s0 = IDLE,
                         timeBound = t)) yield (t, p)
 
   Time.timed{ println(data.mkString("\n")) }
   scalax.chart.api.XYLineChart(data).show() // with dependencies on scala-chart
+
+  println(channelAnalysis.steadyStateExperiment(s0 = IDLE, steadyStateProperty = _ == DONE))
 }

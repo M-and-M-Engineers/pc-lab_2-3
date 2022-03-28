@@ -1,0 +1,9 @@
+// Probability that State 3 is reached in k or less steps. 
+P=? [ true U<=k (s=3) ]
+
+// Probability that State 3 is not reached in k steps.
+P=? [ !( true U<=k (s!=3)) ]
+
+// Steady State that State 3 is reached.
+S=? [ (s=3) ]
+
