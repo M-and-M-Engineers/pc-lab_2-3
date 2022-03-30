@@ -61,4 +61,11 @@ object DAPGrid {
       (i,j) =>  localTokens(s.tokens,(i,j)).apply(p).toString +
                "("+localTokens(s.messages, (i,j)).apply(p).toString+")"
     )
+
+  // prints a grid of all tokens in the state
+  def simpleGridStateToString[P](s: State[(Int,Int),P]):String =
+    Grids.gridLikeToString(s.neighbours.keySet.max._1,s.neighbours.keySet.max._1,
+      (i,j) =>  localTokens(s.tokens,(i,j)).toString +
+        "("+localTokens(s.messages, (i,j)).toString+")"
+    )
 }
