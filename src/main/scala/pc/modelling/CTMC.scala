@@ -10,10 +10,7 @@ trait CTMC[S] {
 object CTMC {
 
   def ofFunction[S](f: PartialFunction[S,Set[(Double,S)]]): CTMC[S] =
-    new CTMC[S]{
-      override def transitions(s: S) =
-        f.applyOrElse(s, (x: S)=>Set[(Double,S)]())
-    }
+    (s: S) => f.applyOrElse(s, (_: S) => Set[(Double, S)]())
 
   def ofRelation[S](rel: Set[(S,Double,S)]): CTMC[S] = ofFunction{
     case s => rel filter {_._1 == s} map { t=>(t._2,t._3)}

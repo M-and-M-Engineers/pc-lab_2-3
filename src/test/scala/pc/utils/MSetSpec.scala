@@ -1,8 +1,8 @@
 package pc.utils
 
-import org.scalatest.FlatSpec
+import org.scalatest.flatspec.AnyFlatSpec
 
-class MSetSpec extends FlatSpec{
+class MSetSpec extends AnyFlatSpec {
 
   "An empty MSet" should "have size 0" in {
     assert( MSet[Int]().size == 0)

@@ -8,10 +8,10 @@ object SPN {
   type SPN[P] = Set[(MSet[P],MSet[P]=>Double,MSet[P],MSet[P])]
 
   def toPartialFunction[P](spn: SPN[P]): PartialFunction[MSet[P],Set[(Double,MSet[P])]] =
-    {case m => for ((cond,rate,eff,inh)<-spn;
-                    if (m disjoined inh);
-                    r = rate(m);
-                    out <- m extract cond) yield (r,out union eff) }
+    {case m => for (cond,rate,eff,inh)<-spn
+                    if m disjoined inh
+                    r = rate(m)
+                    out <- m extract cond yield (r,out union eff) }
 
   def toCTMC[P](spn: SPN[P]): CTMC[MSet[P]] = CTMC.ofFunction(toPartialFunction(spn))
 

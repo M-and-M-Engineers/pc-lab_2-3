@@ -2,22 +2,21 @@ package pc.examples
 
 import pc.modelling.System
 
-object SystemMutualExclusionion extends App {
+object SystemMutualExclusion extends App {
 
-  object state extends Enumeration {
-    val N,T,C = Value
-  }
-  type State = state.Value
-  import state._
+  enum State:
+    case N, T, C
+
+  import State.*
 
   // System specification
   def mutualExclusion(size: Int): System[List[State]] = {
     def moveOne(l:List[State])(from: State, to: State): Set[List[State]] =
-      for (i <- (0 until size).toSet; if l(i)==from) yield l.updated(i,to)
+      for i <- (0 until size).toSet; if l(i)==from yield l.updated(i,to)
     System.ofFunction[List[State]]{case l =>
       moveOne(l)(N,T) ++
         moveOne(l)(C,N) ++
-        (if (l.contains(C)) Set() else moveOne(l)(T,C))
+        (if l.contains(C) then Set() else moveOne(l)(T,C))
     }
   }
 

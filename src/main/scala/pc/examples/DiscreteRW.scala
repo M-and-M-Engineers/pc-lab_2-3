@@ -1,19 +1,19 @@
 package pc.examples
 
+import pc.modelling.*
 import pc.modelling.PetriNet
-import pc.modelling.PetriNet._
+import pc.modelling.PetriNet.*
 import pc.utils.MSet
 
 object DiscreteRW {
 
-  object place extends Enumeration {
-    val INITIAL,CHOICE,ASK_READING,ASK_WRITING,MUTEX,READING,WRITING = Value
-  }
-  import place._
-  type Place = place.Value
+  enum Place:
+    case INITIAL, CHOICE, ASK_READING, ASK_WRITING, MUTEX, READING, WRITING
+
+  import Place.*
 
   // The Verifier task
-  def rwV = toSystem(PetriNet[Place](
+  def rwV: System[MSet[Place]] = toSystem(PetriNet[Place](
     MSet(INITIAL) ~~> MSet(CHOICE),
     MSet(CHOICE) ~~> MSet(ASK_READING),
     MSet(CHOICE) ~~> MSet(ASK_WRITING),
@@ -28,7 +28,7 @@ object DiscreteRW {
      mai essere effettuata, proibendo allo scrittore di scrivere nel caso in cui almeno un lettore voglia leggere. Perciò,
      se un lettore richiede la lettura, egli infine leggerà poiché blocca tutti gli scrittori che hanno intenzione
      di scrivere. */
-  def rwD = toSystem(PetriNet[Place](
+  def rwD: System[MSet[Place]] = toSystem(PetriNet[Place](
     MSet(INITIAL) ~~> MSet(CHOICE),
     MSet(CHOICE) ~~> MSet(ASK_READING),
     MSet(CHOICE) ~~> MSet(ASK_WRITING),
@@ -38,7 +38,7 @@ object DiscreteRW {
     MSet(WRITING) ~~> MSet(INITIAL, MUTEX)
   ))
 
-  def maxOneWriter(path: List[MSet[Place]]) = !path.contains(MSet(WRITING,WRITING))
+  def maxOneWriter(path: List[MSet[Place]]): Boolean = !path.contains(MSet(WRITING,WRITING))
 
-  def noReaderAndWriter(path: List[MSet[Place]]) = !path.contains(MSet(WRITING, READING))
+  def noReaderAndWriter(path: List[MSet[Place]]): Boolean = !path.contains(MSet(WRITING, READING))
 }

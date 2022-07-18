@@ -1,19 +1,20 @@
 package pc.examples
 
+import pc.modelling.*
+import pc.modelling.PetriNet.*
 import pc.modelling.PriorityPetriNet
-import pc.modelling.PriorityPetriNet._
+import pc.modelling.PriorityPetriNet.*
 import pc.utils.MSet
 
 object PriorityRWSimulator extends App {
 
-  object place extends Enumeration {
-    val INITIAL,CHOICE,ASK_READING,ASK_WRITING,MUTEX,READING,WRITING = Value
-  }
-  import place._
-  type Place = place.Value
+  enum Place:
+    case INITIAL, CHOICE, ASK_READING, ASK_WRITING, MUTEX, READING, WRITING
+
+  import Place.*
 
   // Alternative Solution to The Designer (version with priorities)
-  def priorityRW = toSystem(PriorityPetriNet[Place](
+  def priorityRW: System[MSet[Place]] = PriorityPetriNet.toSystem(PriorityPetriNet[Place](
     MSet(INITIAL) ~~> MSet(CHOICE) --> 10,
     MSet(CHOICE) ~~> MSet(ASK_READING) --> 10,
     MSet(CHOICE) ~~> MSet(ASK_WRITING) --> 10,
@@ -23,5 +24,5 @@ object PriorityRWSimulator extends App {
     MSet(WRITING) ~~> MSet(INITIAL, MUTEX) --> 10
   ))
 
-  priorityRW.paths(MSet(INITIAL,INITIAL,MUTEX), 6).par.foreach(println(_))
+  priorityRW.paths(MSet(INITIAL,INITIAL,MUTEX), 6).foreach(println(_))
 }

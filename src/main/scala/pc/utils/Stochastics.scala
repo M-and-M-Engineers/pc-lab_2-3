@@ -4,7 +4,7 @@ import scala.util.Random
 
 object Stochastics extends App {
 
-  implicit lazy val random = new Random()
+  given Random = new Random()
 
   // (p1,a1),...,(pn,an) --> (p1,a1),(p1+p2,a2),..,(p1+..+pn,an)
   def cumulative[A](l: List[(Double,A)]): List[(Double,A)] =
@@ -12,23 +12,22 @@ object Stochastics extends App {
 
   // (p1,a1),...,(pn,an) --> ai, selected randomly and fairly
   def draw[A](cumulativeList: List[(Double,A)])
-             (implicit rnd: Random = random): A = {
+             (using rnd: Random): A = {
     val rndVal = rnd.nextDouble() * cumulativeList.last._1
     cumulativeList.collectFirst{ case (r, a) if r >= rndVal => a }.get
   }
 
-  def uniformDraw[A](actions: Set[A])(implicit rnd: Random = random): A = {
-    actions.toList(random.nextInt(actions.size))
+  def uniformDraw[A](actions: Set[A])(using rnd: Random): A = {
+    actions.toList(Random.nextInt(actions.size))
   }
 
-  def drawFiltered(filter: Double=>Boolean)(implicit rnd: Random = random): Boolean = {
+  def drawFiltered(filter: Double=>Boolean)(using rnd: Random): Boolean = {
     filter(rnd.nextDouble())
   }
 
   // (p1,a1),...,(pn,an) + 100 --> {a1 -> P1%,...,an -> Pn%}
-  def statistics[A](choices: Set[(Double,A)], size: Int)
-                   (implicit rnd: Random = random): Map[A,Int] =
-    (1 to size).map(i => Stochastics.draw(cumulative(choices.toList))(random))
+  def statistics[A](choices: Set[(Double,A)], size: Int)(using rnd: Random): Map[A,Int] =
+    (1 to size).map(_ => Stochastics.draw(cumulative(choices.toList))(using rnd))
                 .groupBy(identity)
-                .mapValues(_.size)
+                .view.mapValues(_.size).toMap
 }

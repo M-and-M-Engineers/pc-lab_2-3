@@ -9,11 +9,10 @@ import java.util.Random
 // The Guru
 object StochasticRW extends App {
 
-  object place extends Enumeration {
-    val INITIAL,CHOICE,ASK_READING,ASK_WRITING,MUTEX,READING,WRITING = Value
-  }
-  import place._
-  type Place = place.Value
+  enum Place:
+    case INITIAL, CHOICE, ASK_READING, ASK_WRITING, MUTEX, READING, WRITING
+    
+  import Place.*
 
   val spn = SPN[Place](
     (MSet(INITIAL), _ => 1.0, MSet(CHOICE), MSet()),

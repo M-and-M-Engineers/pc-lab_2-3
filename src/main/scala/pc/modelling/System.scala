@@ -16,29 +16,27 @@ trait System[S] extends CoreSystem[S] {
     normalForm(p.last)
 
   // paths of exactly length `depth`
-  def paths(s: S, depth: Int): Stream[List[S]] = depth match {
-    case 0 => Stream()
-    case 1 => Stream(List(s))
-    case _ => for (path <- paths(s, depth - 1);
-                   next <- next(path.last)) yield (path :+ next)
+  def paths(s: S, depth: Int): LazyList[List[S]] = depth match {
+    case 0 => LazyList()
+    case 1 => LazyList(List(s))
+    case _ => for path <- paths(s, depth - 1)
+                  next <- next(path.last) yield path :+ next
   }
 
   // complete path with length '<= depth'
-  def completePathsUpToDepth(s: S, depth:Int): Stream[List[S]] =
-    Stream.iterate(1)(_+1) take (depth) flatMap (paths(s,_)) filter (complete(_))  // could be optimised
+  def completePathsUpToDepth(s: S, depth:Int): LazyList[List[S]] =
+    LazyList.iterate(1)(_+1) take depth flatMap (paths(s,_)) filter complete  // could be optimised
 
   // an infinite stream: might loop, use with care!
-  def completePaths(s: S): Stream[List[S]] =
-    Stream.iterate(1)(_+1) flatMap (paths(s,_)) filter (complete(_))
+  def completePaths(s: S): LazyList[List[S]] =
+    LazyList.iterate(1)(_+1) flatMap (paths(s,_)) filter complete
 }
 
 object System { // Our factory of Systems
 
   // The most general case, an intensional one
   def ofFunction[S](f: PartialFunction[S,Set[S]]): System[S] =
-    new CoreSystem[S] with System[S] {
-      override def next(s: S) = f.applyOrElse(s, (x: S)=>Set[S]())
-    }
+    (s: S) => f.applyOrElse(s, (_: S) => Set[S]())
 
   // Extensional specification
   def ofRelation[S](rel: Set[(S,S)]): System[S] = ofFunction{

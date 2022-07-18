@@ -1,13 +1,23 @@
 name := "formalsystems"
 
-version := "0.1"
+ThisBuild / version := "0.1"
 
-scalaVersion := "2.12.3"
+ThisBuild / scalaVersion := "3.1.3"
 
-val scalatest = "org.scalatest" % "scalatest_2.12" % "3.0.1" % "test"
-val scalacheck = "org.scalacheck" %% "scalacheck" % "1.13.4" % "test"
-val scalachart = "com.github.wookietreiber" %% "scala-chart" % "latest.integration"
+ThisBuild / scalacOptions ++= Seq(
+  "-encoding", "utf8", // Option and arguments on same line
+  "-Xfatal-warnings",  // New lines for each options
+  "-deprecation",
+  "-explain",
+  "-unchecked",
+  "-new-syntax",
+  "-rewrite"
+)
+
+val scalatest = "org.scalatest" %% "scalatest" % "3.2.12" % "test"
+val scalacheck = "org.scalacheck" %% "scalacheck" % "1.16.0" % "test"
+val scalaParallelCollections = "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.4"
 
 lazy val root = (project in file (".")).
-  settings(Seq(scalaVersion := "2.12.3")).
-  settings(libraryDependencies ++= Seq (scalatest, scalacheck, scalachart))
+  settings(Seq(scalaVersion := "3.1.3")).
+  settings(libraryDependencies ++= Seq (scalatest, scalacheck, scalaParallelCollections))

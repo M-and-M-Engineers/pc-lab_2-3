@@ -6,17 +6,16 @@ import java.util.Random
 
 object StochasticMutualExclusion extends App {
   // Specification of my data-type for states
-  object place extends Enumeration {
-    val N,T,C = Value
-  }
-  type Place = place.Value
-  import SPN._
-  import place._
+  enum Place:
+    case N, T, C
+  
+  import SPN.*
+  import Place.*
 
   val spn = SPN[Place](
-    (MSet(N), m=>1.0,MSet(T),MSet()),
+    (MSet(N), _ =>1.0,MSet(T),MSet()),
     (MSet(T), m=>m(T),MSet(C),MSet(C)),
-    (MSet(C), m=>2.0,MSet(),MSet()))
+    (MSet(C), _ =>2.0,MSet(),MSet()))
 
 
   val rwSimulator = CTMCSimulation(toCTMC(spn))

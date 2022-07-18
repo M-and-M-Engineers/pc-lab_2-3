@@ -1,10 +1,10 @@
 package pc.utils
 
-import org.scalatest.FlatSpec
+import org.scalatest.flatspec.AnyFlatSpec
 
-class StochasticsSpec extends FlatSpec{
+class StochasticsSpec extends AnyFlatSpec {
 
-  val choices = Set( 1.0->"a", 2.0->"b", 3.0->"C")
+  private val choices = Set( 1.0->"a", 2.0->"b", 3.0->"C")
 
   "Choices" should "correctly give cumulative list" in {
     assertResult(
@@ -15,7 +15,7 @@ class StochasticsSpec extends FlatSpec{
   }
 
   "Choices" should "correctly draw" in {
-    val map = Stochastics.statistics(choices, 10000)
+    val map = Stochastics.statistics(choices, 10000) (using Stochastics.given_Random)
 
     assert(map("a")>1600)
     assert(map("a")<1720)

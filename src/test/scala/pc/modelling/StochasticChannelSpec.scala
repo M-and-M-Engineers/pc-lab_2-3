@@ -1,12 +1,12 @@
-package pc.modelling;
+package pc.modelling
 
-import org.scalatest.FlatSpec
+import org.scalatest.flatspec.AnyFlatSpec
 
-class StochasticChannelSpec extends FlatSpec{
+class StochasticChannelSpec extends AnyFlatSpec {
 
-  import pc.examples.StochasticChannel, pc.examples.StochasticChannel.state._
+  import pc.examples.StochasticChannel, pc.examples.StochasticChannel.State.*
 
-  def ch = StochasticChannel.stocChannel
+  private val ch = StochasticChannel.stocChannel
 
   "Stochastic channel" should "correctly draw transitions" in {
     assertResult(Set(1.0->SEND))(ch.transitions(IDLE))

@@ -4,14 +4,13 @@ import pc.modelling.System
 
 object SystemChannel extends App {
   // Specification of my data-type for states
-  object state extends Enumeration {
-    val IDLE,SEND,DONE,FAIL = Value
-  }
-  type State = state.Value
-  import state._
+  enum State:
+    case IDLE, SEND, DONE, FAIL
+
+  import State.*
 
   // System specification
-  def channel(): System[State] = System.ofTransitions(
+  def channel: System[State] = System.ofTransitions(
     IDLE->SEND,
     SEND->SEND,
     SEND->DONE,

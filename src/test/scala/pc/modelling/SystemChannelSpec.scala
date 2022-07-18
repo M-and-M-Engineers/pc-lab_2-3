@@ -1,11 +1,11 @@
 package pc.modelling
 
-import org.scalatest.FlatSpec
+import org.scalatest.flatspec.AnyFlatSpec
 
-class SystemChannelSpec extends FlatSpec{
-  import pc.examples.SystemChannel, pc.examples.SystemChannel.state._
+class SystemChannelSpec extends AnyFlatSpec {
+  import pc.examples.SystemChannel, pc.examples.SystemChannel.State.*
 
-  val ch = SystemChannel.channel();
+  private val ch = SystemChannel.channel
 
   "System Channel" should "properly identify normal forms" in {
     assert(!ch.normalForm(IDLE))
@@ -13,12 +13,12 @@ class SystemChannelSpec extends FlatSpec{
   }
 
   "System Channel" should "properly draw next states" in {
-    assertResult(Set(SEND))(ch.next(IDLE));
-    assertResult(Set(SEND, DONE, FAIL))(ch.next(SEND));
+    assertResult(Set(SEND))(ch.next(IDLE))
+    assertResult(Set(SEND, DONE, FAIL))(ch.next(SEND))
   }
 
   "System Channel" should "properly generate paths" in {
-    assert(ch.paths(IDLE,3).contains(List(IDLE, SEND, SEND)));
+    assert(ch.paths(IDLE,3).contains(List(IDLE, SEND, SEND)))
 
     assertResult(
       List(List(IDLE, SEND, DONE), List(IDLE, SEND, SEND, DONE))
@@ -27,6 +27,6 @@ class SystemChannelSpec extends FlatSpec{
     )
 
     assert(ch.completePaths(IDLE).contains(
-           List(IDLE, SEND, SEND, SEND, FAIL, IDLE, SEND, DONE)));
+           List(IDLE, SEND, SEND, SEND, FAIL, IDLE, SEND, DONE)))
   }
 }

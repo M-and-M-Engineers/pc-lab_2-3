@@ -6,7 +6,7 @@ import java.util.Random
 
 object StochasticChannelSimulation extends App {
 
-  import pc.examples.StochasticChannel.state._
+  import pc.examples.StochasticChannel.State.*
 
   val channel = StochasticChannel.stocChannel
 

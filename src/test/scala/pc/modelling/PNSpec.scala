@@ -1,13 +1,13 @@
 package pc.modelling
 
-import org.scalatest.FlatSpec
+import org.scalatest.flatspec.AnyFlatSpec
 
-class PNSpec extends FlatSpec{
+class PNSpec extends AnyFlatSpec {
 
-  import pc.examples.PNMutualExclusion, pc.examples.PNMutualExclusion.place._
+  import pc.examples.PNMutualExclusion, pc.examples.PNMutualExclusion.Place.*
   import pc.utils.MSet
 
-  val pnME = PNMutualExclusion.mutualExclusionSystem()
+  private val pnME = PNMutualExclusion.mutualExclusionSystem()
 
   "PN for mutual exclusion" should "properly generate 7-length paths" in {
 

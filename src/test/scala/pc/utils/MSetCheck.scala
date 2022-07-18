@@ -7,7 +7,7 @@ import org.scalacheck.{Arbitrary, Properties}
 object MSetCheck extends Properties("MSet") {
 
   implicit def msetArbitrary[A:Arbitrary]: Arbitrary[MSet[A]] =
-    Arbitrary(arbitrary[List[A]] map (MSet.ofList(_)))
+    Arbitrary(arbitrary[List[A]] map MSet.ofList)
 
   property ("has constructors that are compatible") = forAll { (list: List[Int]) =>
     val m1 = MSet.ofList(list); m1 == MSet.ofMap(m1.asMap)
@@ -22,7 +22,7 @@ object MSetCheck extends Properties("MSet") {
   }
 
   property ("has union semantics that corresponds to List's") = forAll { (list1: List[Int], list2: List[Int]) =>
-    MSet.ofList(list1 union list2) == MSet.ofList(list1).union(MSet.ofList(list2))
+    MSet.ofList(list1 concat list2) == MSet.ofList(list1).union(MSet.ofList(list2))
   }
 
   property ("has diff semantics that corresponds to List's") = forAll { (list1: List[Int], list2: List[Int]) =>
@@ -38,7 +38,7 @@ object MSetCheck extends Properties("MSet") {
   }
 
   property ("has extract that is coherent with union") = forAll { (mset1: MSet[Int], mset2: MSet[Int]) =>
-    val mset3 = mset1 diff mset2; ((mset1 extract mset3).get.union(mset3) == mset1)
+    val mset3 = mset1 diff mset2; (mset1 extract mset3).get.union(mset3) == mset1
   }
 
   property ("has iterator that gives values in MSet") = forAll { (mset: MSet[Int]) =>
