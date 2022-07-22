@@ -7,7 +7,7 @@ class PNSpec extends AnyFlatSpec {
   import pc.examples.PNMutualExclusion, pc.examples.PNMutualExclusion.Place.*
   import pc.utils.MSet
 
-  private val pnME = PNMutualExclusion.mutualExclusionSystem()
+  private val pnME = PNMutualExclusion.mutualExclusionSystem
 
   "PN for mutual exclusion" should "properly generate 7-length paths" in {
 

@@ -6,7 +6,7 @@ import scala.annotation.targetName
 
 object PetriNet {
   // pre-conditions, effects, inhibition
-  opaque type PetriNet[P] = Set[(MSet[P],MSet[P],MSet[P])]
+  type PetriNet[P] = Set[(MSet[P],MSet[P],MSet[P])]
 
   // factory of A Petri Net
   def apply[P](transitions: (MSet[P],MSet[P],MSet[P])*): PetriNet[P] =
